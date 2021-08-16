@@ -5,5 +5,12 @@ module.exports = {
                 additionalData: '@import "@/styles/base.scss";'
             }
         }
+    },
+    pluginOptions: {
+        electronBuilder: {
+            builderOptions: {
+                publish: ['github']
+            }
+        }
     }
 }
