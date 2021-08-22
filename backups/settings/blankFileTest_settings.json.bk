@@ -1,0 +1,14 @@
+{
+  "defaultFolder": "",
+  "delay": "",
+  "limitSFX": false,
+  "limitSFXCount": "",
+  "displayNoSFXEntry": false,
+  "noSFXEntryMsg": "",
+  "displayOverLimit": false,
+  "overLimitMsg": "",
+  "displayNoSFX": false,
+  "noSFXMsg": "",
+  "displayNoPoints": false,
+  "noPointsMsg": ""
+}

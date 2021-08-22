@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<body style="background-color: white;">
+    <div class="header modal_content">
+            <h1 class="ui teal dividing header">"<span id="title"></span>" sound effect options:</h1>
+    </div>
+    <div class="scrolling content modal_content">
+        <form id="edt-sfx-form" class="ui form" style="margin-bottom: -2.1em; margin-top: -1.1em;">
+            <h5 class="ui teal dividing header">General Settings:</h5>
+            <div class="two fields" style="margin-right: 0.5em; margin-left: 0.1em;">
+                <label for="edt-sfx-select"><b>Select a sound effect file:</b></label>
+                <div class="eight wide field">
+                    <div class="ui search clearable selection dropdown" id="sfx-select" name="edt_sfx_select">
+                        <input id="edt-sfx-dropdown" name="edt_sfx_dropdown" type="hidden">
+                        <div class="default text">Available files...</div>
+                        <i class="dropdown icon"></i>
+
+                    </div>
+                </div>
+                <div class="eight wide field">
+                    <input type="file" class="folder-select" onchange="fileSelect(event)" id="file-select" accept=".mp3"
+                        name="file_select">
+                    <label id="folder-select-btn" for="file-select" name="" class="ui teal button">Select a file from a
+                        different location...</label>
+                </div>
+            </div>
+            <div class="inline fields">
+                <div class="sixteen wide field">
+                    <label>Enter the sound effect trigger:</label>
+                    <input id="edt-effect-trigger" type="text" name="edt_effect_trigger"
+                        placeholder="Enter a single word used to trigger the sound effect">
+                </div>
+            </div>
+            <div class="inline fields">
+                <div class="eight wide field">
+                    <label>Volume:</label>
+                    <div class="ui teal small slider _slider" id="edt-slider-1" style="margin-right: 0.5em"></div>
+                    <div class="ui input disabled">
+                        <input type="text" id="edt-slider-input-1" value="50%">
+                    </div>
+                </div>
+                <div class="eight wide field">
+                    <label>Sound effect cost:</label>
+                    <input id="edt-effect-cost" type="number" name="edt_effect_cost" placeholder="Enter sound effect cost">
+                </div>
+            </div>
+            <h5 class="ui teal dividing header">Sound effect chat message settings:</h5>
+            <div class="field">
+                <div class="ui slider checkbox">
+                    <label><b>Send a chat message when this effect is triggered? (optional)</b></label>
+                    <input id="edt-effect-chat-check" type="checkbox" tabindex="0" class="hidden" name="edt_effect_chat_check">
+                </div>
+            </div>
+            <div class="inline fields">
+                <div id="disabled" class="ui sixteen wide disabled readonly field">
+                    <label>Message to be sent:</label>
+                    <input id="edt-effect-chat-msg" type="text" name="edt_effect_chat_msg" placeholder="Chat message to be sent">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="actions">
+        <div id="refresh-sfx" class="ui teal button disabled"
+            onclick="updateList('sfx-select', 'edt-sfx-form', edtSFXFormRules)"><i class="refresh icon"></i> Sync effects files
+            list</div>
+        <div id="preview-sfx" class="ui teal button disabled" onclick="previewSound()">Preview sound file
+        </div>
+        <div id="edt-cancel-sfx" class="ui red deny button" onclick="cancelEdit()">Cancel Edit
+        </div>
+        <div id="edt-save-sfx" class="ui teal button _teal transition" onclick="saveEditSFX()">Save sound effect</div>
+    </div>
+</body>
+
+<script src="./scripts/editSFX.js"></script>
+<script>
+    createForm()
+    $('.slider._slider').slider({
+            min: 0,
+            max: 100,
+            start: 50,
+            step: 1,
+            onMove: function () {
+                var sliderPos = $(this).slider('get value')
+                document.getElementById('edt-slider-input-1').value = sliderPos + "%"
+            }
+        })
+            //.slider('get value', function () { consle.log(value) });
+    $('.ui.checkbox').checkbox({
+        onChange: function () {
+            var textInput = document.getElementById('disabled')
+            $('.ui.checkbox').checkbox('is checked') ? textInput.classList.remove('disabled') : textInput.classList.add('disabled')
+        }
+    })
+    validateForm("#edt-sfx-form", edtSFXFormRules)
+    $('#edt-sfx-form').form('revalidate', true)
+</script>

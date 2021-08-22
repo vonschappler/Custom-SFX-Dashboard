@@ -1,0 +1,54 @@
+{
+  "sfx": [
+    {
+      "volume": 50,
+      "msg": "/me : \"But I'm gonna be super unpleasant about it...\"",
+      "trigger": "unpleasant",
+      "sfxCost": "0",
+      "file": "unpleasant.mp3",
+      "allowMsg": true,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\CustomSFX_gui\\sfx\\unpleasant.mp3",
+      "sfxEnabled": true
+    },
+    {
+      "volume": 50,
+      "msg": "/me : \"Against my better judgment!\"",
+      "trigger": "judgment",
+      "sfxCost": "50",
+      "file": "judgment.mp3",
+      "allowMsg": true,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\CustomSFX_gui\\sfx\\judgment.mp3",
+      "sfxEnabled": true
+    },
+    {
+      "volume": 50,
+      "msg": "/me : \"Oop!\"",
+      "trigger": "oop",
+      "sfxCost": "50",
+      "file": "oop.mp3",
+      "allowMsg": true,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\CustomSFX_gui\\sfx\\oop.mp3",
+      "sfxEnabled": true
+    },
+    {
+      "volume": 50,
+      "msg": "/me : \"Haha!\"",
+      "trigger": "haha",
+      "sfxCost": "0",
+      "file": "haha.mp3",
+      "allowMsg": true,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\CustomSFX_gui\\sfx\\haha.mp3",
+      "sfxEnabled": true
+    },
+    {
+      "volume": 50,
+      "msg": "",
+      "trigger": "darksound",
+      "sfxCost": "500",
+      "file": "suspense_01.mp3",
+      "allowMsg": false,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\ChallengeMeter\\SFX\\suspense_01.mp3",
+      "sfxEnabled": true
+    }
+  ]
+}

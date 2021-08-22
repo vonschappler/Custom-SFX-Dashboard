@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+    <title>[Custom SFX v2.0.0] - Dashboard</title>
+</head>
+
+<body style="overflow: hidden; background-color: #1b1c1d;">
+    <div id="topMenu" class="ui top fixed inverted small menu drag">
+        <div class="ui thirteen column wide drag item borderless tiny header">
+                <img class="ui mini image" src="../img/assets/dashboard.ico"></img> [Custom SFX v2.0.0] - Dashboard
+        </div>
+        <a id="help-menu" class="ui icon borderless dropdown right floated item nodrag" onclick="" tabindex="-1"><i class="circle question icon"></i></a>
+        <a id="min-menu" class="item borderless nodrag" onclick="minimizeWindow()"><i class="small window minimize outline icon"></i></a>
+        <a id="max-menu" class="item borderless nodrag" onclick="maxmizeWindow()"><i id="max-icon"
+                class="small window maximize outline icon"></i></a>
+        <a id="close-menu" class="item borderless nodrag" onclick="closeWindow()"><i class="small window close outline icon"></i></a>
+    </div>
+    <div id="content-holder" class="ui pushable notoolbar">
+        <div id="content-docs" class="ui pusher"></div>
+    </div>
+    <div class="ui bottom fixed inverted tiny menu">
+        <div id="selectedMenu" class="header item">Help:</div>
+        <div id="helpSelected" class="item borderless">Documentation of the script</div>
+    </div>
+    <div id="modal" class="ui modal _image">
+        <i class="close icon"></i>
+        <div class="image content">
+            <img id="expandedImg" class="ui fluid image">
+        </div>
+        <div id="description" class="centered aling description"></div>
+    </div>
+    <script src="../scripts/helpMenu.js"></script>
+    <script src="../scripts/base.js"></script>
+    <script src="../scripts/documentation.js"></script>
+    <script>
+        helpMenu()
+        startPage('manual')
+    </script>
+</body>
+
+</html>

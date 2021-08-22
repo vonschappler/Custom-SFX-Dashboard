@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<body style="background-color: white;">
+    <div class="header modal_content">
+        <h3 class="ui red dividing header"><i class="exclamation circle icon"></i>Unable to load the required resources...</h3>
+    </div>
+    <div class="content modal_content">
+        <div class="description">
+            <b>The required resource (sfx.json) was not found in your system directory or is in an old format not used anymore by this version of this script.</b><br><br>You can either <b>create a blank version</b> of this file or <b>import and convert</b> a previous version file to be used with this version.<br>
+            After this you can start creating your custom sound effects to be used with <b>[Custom SFX v2.0.0]</b>.
+            <div class="ui inverted message">
+                <div class="ui inverted dividing header">Important notice</div>
+                <div class="content"><br>Importing a previously created sound effects file will automatically make a copy from all MP3 files inside the [Custom SFX v1.0.0] sfx folder to the default sound effects folder you set up in the Script Settings tab, if this file does not yet exist in the selected directory.</div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <input type="file" class="folder-select" onchange="importSFXFile(event)" id="sfx-file-select" accept=".json, .bk" name="sfx_select">
+        <label id="sfx-file-select-btn" for="sfx-file-select" name="" class="ui teal button">Import sound effects
+            file...</label>
+        <div id="sfx-cancel" class="ui red button transition hidden" onclick="cancelSFXImport()">Cancel Import</div>
+        <div id="sfx-confirm" class="ui button positive _teal transition hidden">Confirm Import</div>
+        <div id="sfx-submit" class="ui positive button _teal transition">Create new file</div>
+    </div>
+</body>
+
+<script src="../src/scripts/addSFX.js"></script>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<div class="ui dividing teal header">
+    <h1><i class="info circle icon"></i> About</h1>
+</div>
+<div class="ui simple segment">
+    <h3>Overview</h3>
+    <ol>
+        <h5 class="ui dividing teal header">
+            <li>Used programming languages and frameworks:</li>
+        </h5>
+            <ul>
+                <li>Main script:</li>
+                <ul>
+                    <li>Python 2.7.3</li>
+                </ul>
+                <li>Graphical User Interface (GUI):</li>
+                <ul>
+                    <li>Electron.js 13.1.4</li>
+                    <li>Fomantic-UI 2.8.8</li>
+                    <li>Noje.js 14.17.1</li>
+                    <li>Datatables 1.10.25</li>
+                    <li>HTML 5</li>
+                    <li>CSS 3</li>
+                    <li>JavsScript</li>
+                    <li>JQuery 3.1.1</li>
+                </ul>
+            </ul>
+        <h5 class="ui dividing teal header">
+            <li>Requirements:</li>
+        </h5>
+            <ul>
+                <li>Streamlabs Chatbot 1.0.2.64</li>
+                <li>Python 2.7.3</li>
+                <li>Operational System(s):</li>
+                <ul>
+                    <li>Windows 10</li>
+                </ul>
+                <li>Streaming platform(s):</li>
+                <ul>
+                    <li>Twitch (100% tested)</li>
+                </ul>
+                <li>Files to be used as sound effects have to be in <b>MP3</b> format (Streamlabs Chatbot restriction)</li>
+            </ul>
+        <h5 class="ui dividing teal header">
+            <li>Basic functionalities:</li>
+        </h5>
+            <ul>
+                <li>Easily creation of custom sound effects</li>
+                <li>Import old settings from the script <b>[Custom SFX v1.0.0]</b> or start from scratch</li>
+                <li>Select any file on your computer to set as custom effect</li>
+                <li>Easy control of all defined sound effects</li>
+            </ul>
+            and much more!
+    </ol>
+    <div class="ui divider"></div>
+    <h3>Changlelog:</h3>
+    <ul>
+        <h4>Oficial Releases:</h4>
+        <ol>
+            <h5 class="ui dividing teal header">
+                <li>Custom SFX - v2.0.0</li>
+            </h5>
+            <b>- Added GUI for easy control of the sound effects</b><br>
+            Previously, the management of these sound effects was made using the <b>Streamlabs Chatbot</b> poor and limited GUI. Now, it's possible to manage these effects with a mordern and responsive GUI, with various controls.<br>
+            <b>- Added some life quality features:</b>
+            <ul>
+                <li>Added the possibility to specify any directory as base directory on your computer where sound effects
+                    are stored
+                </li>
+                Previously, only the <b>script_root_folder/sfx</b> was used for search of files to be added as custom sound
+                effects.
+                Now it's possible no only to still make use of the default folder (<b>script_root_folder/sfx</b>) but also
+                select
+                any folder to be set as default.
+                <li>Added the possibility to select select any <b>MP3</b> file from your computer as sound effect</li>
+                Before, only MP3 files stored inside the <b>script_root_folder/sfx</b> could be selected. Now it's not only
+                possible
+                to change the default folder, but also to include files which are outside the default folder selected.
+                <li>Added a function to live preview the selected file before creating a custom sound effect</li>
+                Previously, due to the <b>Streamlabs Chatbot</b> limitations, previewing was possible, but it took too many
+                steps/settings to work properly. Now a live preview can be done "on the fly" during the creation and edition
+                of a
+                custom sound effect.
+                <li>Added a control panel to manage all added custom sounds effects easily</li>
+                Before, due to the <b>Streamlabs Chatbot</b> limitations, editing / deleting a unwanted custom sound effect
+                took to
+                many steps which could be removed by creating a GUI.
+                <li>Added an option to enable/disable a custom sound effect trigger</li>
+                Before, the only way to prevent it from being triggered was by deleting it from the script.
+                <li>Added functions to import backups created by the previous version</li>
+                <li>Added a logger function to log the script and GUI usage</li>
+                It was not possible to log anything. Now with this logger, debug and error report will be easier to track
+                and fix.
+                <li>Added a improved help file</li>
+                The previous help format has changed to a more intuitive format, with images and other features.
+            </ul>
+            <b>- Added a functionatity to send important messages directly on the whisper of those who allow recieving whispers from non-friends</b><br>
+            As we know, not everyone allow receinving whispers, so the script now checks if the person allows whispers from <b>non-friends</b> or not and if the user accepts it, the script messages like errors and sound effects listing will be sent to the user whisper as a way to prevent spamming on stream chat.<br>
+            <b>- Fixed and issue that would prevent sound effects listing to be sent if total lenght of message was over Twitch limit chat</b><br>
+            Due to IRC limitations, chat messages would either be sent incomplete or not sent at all.<br>
+            <h5 class="ui dividing teal header">
+                <li>Custom SFX - v1.0.0</li>
+            </h5>
+            <b> - Added a command to list all sound effects triggers</b><br>
+            This feature was not available in <b>Alpha</b> versions
+        </ol>
+        <h4>Alpha Releases:</h4>
+        <ol>
+            <h5 class="ui dividing teal header">
+                <li>Custom SFX - a0.0.3</li>
+            </h5>
+            <b>Fixed an issue that allowed sound effects triggering without checking the cost defined for each sound effect</b><br>
+            Once the sound effects were triggering without checking cost, the limit to use them by individual cost was being ignored.
+            <h5 class="ui dividing teal header">
+                <li>Custom SFX - a0.0.2</li>
+            </h5>
+            <b>Added cost and limit controls for triggered sound effects in a single use of the command.</b><br>
+            Previously, there was no way to limit the use of the sound effects, which could end in overload of the script, causing possible crashes to <b>Streamlabs Chatbot</b>.
+            <h5 class="ui dividing teal header">
+                <li>Custom SFX - a0.0.1</li>
+            </h5>
+            <b>First alpha release</b><br>
+            There is nothing to add, since this was the first release of the script.
+        </ol>
+    </ul>
+    
+</div>
+<script src="../src/scripts/helpMenu.js"></script>
+<script>
+    helpMenu()
+</script>

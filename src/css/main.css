@@ -1,0 +1,175 @@
+body {
+    overflow: hidden;
+    background-color: #1b1c1d;
+    height: initial;
+}
+
+#topMenu {
+    max-height: 0.5rem;
+    padding-bottom: -1.0rem;
+}
+
+#tool-bar {
+    padding-top: 2.6rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.0rem;
+    z-index: 1;
+}
+
+#content-holder {
+    margin-top: 5.0rem;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 7.5rem !important;
+}
+
+#content {
+    background-color: #ffffff !important;
+    width: 100% !important;
+    overflow-y: auto !important;
+    padding-left: 1rem !important;
+    padding-top: 1rem !important;
+    padding-right: 1rem !important;
+    user-select: none !important;
+    
+}
+
+#content-holder.notoolbar {
+    margin-top: 2.5rem;
+    padding-top: -0.5rem !important;
+    padding-bottom: 5.0rem !important;
+}
+
+#content-docs {
+    background-color: #ffffff;
+    width: 100% !important;
+    overflow-y: auto;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: -0.5rem !important;
+    padding-right: 1rem;
+    user-select: none;
+}
+
+#content-log {
+    background-color: #ffffff;
+    width: 100% !important;
+    overflow-y: auto;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0.5rem !important;
+    padding-right: 1rem;
+    user-select: none;
+}
+
+.modal_content{
+    user-select: none;
+}
+
+.drag {
+    -webkit-app-region: drag;
+}
+
+.toast  {
+    user-select: none;
+    cursor: default;
+    -webkit-app-region: no-drag;
+    filter: none !important;
+}
+
+.ui.toast-container .toast-box{
+    z-index:999999;
+}
+
+.toast-container {
+    filter: none !important;
+}
+
+.bar.progressing {
+    cursor: default;
+    z-index:999999;
+}
+
+.nodrag {
+    -webkit-app-region: no-drag
+}
+
+a.item, a.item.active, a.top, .button, .checkbox, .menu>.item{
+    cursor: default !important;
+}
+
+.field>._slider, .field>.slider.checkbox {
+    cursor: default !important;
+}
+
+a.top {
+    color: #16b2ab !important;
+}
+
+#close-menu:hover, #close-menu-help:hover {
+    background-color: #dd2e2e;
+    color: white
+
+}
+
+._teal {
+    background-color: #16b2ab !important;
+}
+
+._teal:hover {
+    background-color: #009c95 !important;
+}
+
+.folder-select {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#folder-select-btn {
+    color: white !important;
+}
+
+#modal>.scrolling.content {
+    overflow-x: hidden;
+}
+
+textarea {
+    font-family: Courier !important;
+    font-size: 12px !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.modal_content>.actions {
+    background-color: #fff !important;
+}
+
+._actions {
+    margin-bottom: 4.5rem !important;
+}
+
+._image, ._image>.close.icon {
+    cursor: default !important;
+}
+
+#expandedImg {
+    padding-top: 2.0rem !important;
+}
+
+#description {
+    padding-bottom: 1.5rem !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.pushable {
+    margin-bottom: 3.5rem;
+}

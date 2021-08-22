@@ -1,0 +1,136 @@
+<div class="ui teal dividing header">
+    <h1><i class="cog icon"></i> Script Settings</h1>
+</div>
+<div class="ui simple segment" style="padding-top: -1.5em;">
+    <form id="settings-form" class="ui form">
+        <h5 class="ui teal dividing header">General Settings:</h5>
+        <div class="two fields" style="margin-right: 0.5em; margin-left: 0.1em;">
+            <label for="folder_display"><b>Default sound effects location:</b></label>
+            <div class="sixteen wide field">
+                <input id="folder-display" type="text" name="folder_display" placeholder="Enter the full directory path for storing sound effect files">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div class="sixteen wide field">
+                <label>Delay between multiple sound effects (in seconds):</label>
+                <input id="delay-display" type="number" name="delay_display" placeholder="Enter a value in seconds">
+            </div>
+        </div>
+        <h5 class="ui teal dividing header">Effect limiter settings:</h5>
+        <div class="field">
+            <div class="ui slider checkbox">
+                <label><b>Enable Sound Effects trigger limiter? (optional)</b></label>
+                <input id="limit-check" type="checkbox" tabindex="0" class="hidden" name="limit_check">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div id="disabled0" class="sixteen wide disabled field">
+                <label>Multiple sound effects limit:</label>
+                <input id="limit-display" type="number" name="limit_display" placeholder="Select or enter a value here">
+            </div>
+        </div>
+        <h5 class="ui teal dividing header">Error/Warning chat messages settings:</h5>
+        <div class="field">
+            <div class="ui slider checkbox">
+                <label><b>Send an error chat message when user is trying use the command without triggering an effect? (optional)</b></label>
+                <input id="no-sfx-entry-check" type="checkbox" tabindex="0" class="hidden" name="no_sfx_entry_check">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div id="disabled1" class="ui sixteen wide disabled field">
+                <label>Message to be sent:</label>
+                <input id="no-sfx-entry-display" type="text" name="no_sfx_entry_display" placeholder="Chat message to be sent">
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui slider checkbox">
+                <label><b>Send an error chat message when user is trying to trigger more effects than the limit? (optional)</b></label>
+                <input id="over-limit-check" type="checkbox" tabindex="0" class="hidden" name="over_limit_check">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div id="disabled2" class="ui sixteen wide disabled field">
+                <label>Message to be sent:</label>
+                <input id="over-limit-display" type="text" name="over_limit_display" placeholder="Chat message to be sent">
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui slider checkbox">
+                <label><b>Send an error chat message when user is trying to trigger a non-existent sound
+                        effect? (optional)</b></label>
+                <input id="no-sfx-check" type="checkbox" tabindex="0" class="hidden" name="no_sfx_check">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div id="disabled3" class="ui sixteen wide disabled field">
+                <label>Message to be sent:</label>
+                <input id="no-sfx-display" type="text" name="no_sfx_display" placeholder="Chat message to be sent">
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui slider checkbox">
+                <label><b>Send an error chat message when user doesn't have enough points to trigger
+                        SFX? (optional)</b></label>
+                <input id="no-points-check" type="checkbox" tabindex="0" class="hidden" name="no_points_check">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div id="disabled4" class="ui sixteen wide disabled field">
+                <label>Message to be sent:</label>
+                <input id="no-points-display" type="text" name="no_points_display"
+                    placeholder="Chat message to be sent">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="actions _actions">
+    <div class="ui teal button right floated" onclick="saveSettingsFile()" tabindex="0"><i class="check icon"></i> Save
+        Settings</div>
+    <div class="ui teal button right floated" onclick="backupSettingsFile()" tabindex="0"><i class="archive icon"></i>
+        Create Backup File
+    </div>
+    <div id="fileList" class="ui upward floating dropdown scrolling teal button right floated">
+        <i id="selectBtnIcon" class="undo altertate icon"></i>
+        <label id="selectBtnLabel" onclick="createBackupList()">Restore settings from backup...</label>
+
+        <div class="inverted menu"></div>
+
+
+    </div>
+</div>
+<link rel="stylesheet" href="../src/css/main.css">
+<script src="../src/scripts/helpMenu.js"></script>
+<script src='../src/scripts/scriptSettings.js'></script>
+<script>
+    $(document).ready(function () {
+        fillSettingsForm()
+        var input1 = document.getElementById('disabled0')
+        var input2 = document.getElementById('disabled1')
+        var input3 = document.getElementById('disabled2')
+        var input4 = document.getElementById('disabled3')
+        var input5 = document.getElementById('disabled4')
+        var changeActive = [input1, input2, input3, input4, input5]
+        checked = $('.ui.checkbox').checkbox("is checked")
+        for (var i = 0; i < changeActive.length; i++) {
+            checked[i] ? changeActive[i].classList.remove('disabled') : changeActive[i].classList.add('disabled')
+        }
+        validateForm('#settings-form', settingsFormRules)
+        $('#settings-form').form('revalidate', true)
+    })
+    $('.ui.checkbox').checkbox({
+        onChange: function () {
+            var input1 = document.getElementById('disabled0')
+            var input2 = document.getElementById('disabled1')
+            var input3 = document.getElementById('disabled2')
+            var input4 = document.getElementById('disabled3')
+            var input5 = document.getElementById('disabled4')
+            var changeActive = [input1, input2, input3, input4, input5]
+            checked = $('.ui.checkbox').checkbox("is checked")
+            for (var i = 0; i < changeActive.length; i++) {
+                checked[i] ? changeActive[i].classList.remove('disabled') : changeActive[i].classList.add('disabled')
+            }
+        }
+    });
+    helpMenu()
+    createBackupList()
+</script>

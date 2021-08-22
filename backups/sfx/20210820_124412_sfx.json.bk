@@ -1,0 +1,14 @@
+{
+  "sfx": [
+    {
+      "volume": 50,
+      "msg": "",
+      "trigger": "opp",
+      "sfxCost": "0",
+      "file": "oop.mp3",
+      "allowMsg": false,
+      "path": "E:\\Program Files\\Streamlabs\\Streamlabs Chatbot\\Services\\Scripts\\CustomSFX_gui\\sfx\\oop.mp3",
+      "sfxEnabled": true
+    }
+  ]
+}

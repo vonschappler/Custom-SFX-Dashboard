@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<div class="ui dividing teal header">
+    <h1><i class="file alternate icon"></i> Custon SFX v2.0.0 - Documentation</h1>
+    Edit this after script is completed
+</div>
+<div class="ui simple segment" style="margin-bottom: 1.5em;">
+    <h4>
+        Streamers have plenty of ways to support or show appreciation to other streamers. Raids, Hosts,
+        Ads (also called ShoutOuts) are some of those ways. This script basically helps streamers in the
+        Ad "portion" of this support to others.<br>
+        Also, it's not always that a streamer will have modeators at hand to help him/her in this advertising
+        to fellow streamers, and thinking on this specific situation, I come here to offer you a brand new
+        script that will help with that! The list below resumes what <code>Custom ShoutOut</code> can do for
+        you (as streamer):
+        <ul>
+            <li>Create a file with "custom messages" per streamer you want to call out on your stream</li>
+            <li>Allow Auto-ShoutOuts for raiders and saved streamers when they join your channel or send
+                their first message during a stream session (saved streamers only)
+            </li>
+            <li>Offer total control of the saved streamers file, based on commands and UI interface buttons</li>
+            <li>Deep log system to allow control of everything done by the script during a stream session</li>
+        </ul>
+        Let's now go a bit deeper into the specifications of each field of the script!
+        <div class="ui inverted segment">
+            <h4 class="ui horizontal inverted divider">IMPORTANT:</h4>
+            Any changes made to ANY fields in this script will just take effect after the button <code>"Save
+            Settings"</code> (at the end of the script UI) is pressed and the script is reloaded. It's also
+            necessary to say that most of the replies from the script are sent to the user's whisper, meaning
+            that for the user to make sure the changes made were successful or not, they will need to have
+            your bot added as a friend in order to get all the whispers from it, in case the user has whispering
+            feature blocked on Twitch.
+        </div>
+    </h4>
+    <h4 class="ui teal dividing header">a) Main Settings:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="../img/docs/db_scriptSettings.png"></div>
+            <button class="ui teal attached button enlarge" onclick="enlargeImage(this)" data-src="db_scriptSettings"
+            data-desc="Image 1: Preview of Script settings page (1/1)"><i class="search plus icon"></i> Expand Image</button>
+        </div>
+    </div>
+        This group is responsible for the basic settings of the script. It's where you control the basic behavior of
+        the bot.<br><br>
+        <code><b>a.1) Auto ShoutOut saved casters?</b></code><br>
+        This feature will enable or disable the option for the bot to Auto-ShoutOut casters/streamers saved on your
+        casters' file, which creation will be detailed later.<br><br>
+        <code>a.2) ShoutOut when caster joins channel?</code><br>
+        If enabled, this feature will send a custom ShoutOut (if defined) whenever a saved caster joins your
+        channel. If
+        disabled, it's necessary for the saved caster to send anything on your chat in order for the bot to ShoutOut
+        the
+        saved caster. Saved casters will be ShoutOut only once per session with this feature. For extra ShoutOuts,
+        it's
+        necessary to do it via command.<br><br>
+        <code>a.3) Auto ShoutOut raiders?</code><br>
+        This feature will Auto-ShoutOut raiders on your channel based on the settings defined in the next group.
+    <h4 class="ui teal dividing header">b) Shotout Raiders:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="./img/customso_ui02.png"></div>
+            <a class="ui teal attached button enlarge" href="./img/customso_ui02.png" target="_blank"><i
+                    class="zoom-in icon"></i> View image in real size (new tab)</a>
+        </div>
+    </div>
+    <h4>
+        As already stated, this group controls how the bot will behave if <code>a.3</code> function is enabled. It's
+        even
+        possible to send a test raid to the script (thanks to the script made by
+        "<a href="https://twitter.com/kruiser8" target="_blank">Kruiser8</a>'s <code>Raid Notify</code> script". A
+        few
+        changes where made to his code in order to make this raid testing a bit more realistic.<br><br>
+        <code>b.1) Message to use for ShoutOut raiders:</code><br>
+        This is where you can set a custom message to be sent as an Auto-ShoutOut whenever you are raided by
+        someone. Note
+        that for this to work correctly, a few parameters MUST be added to your custom message:
+        <ul>
+            <li><code>{raider}</code>: this will be replaced automatically by the raider's name</li>
+            <li><code>{count}</code>: this will be replaced automatically by the number of viewers raiding you</li>
+            <li><code>{url}</code>: this will be replaced automatically by the raider's channel URL on Twitch</li>
+            <li><code>{game}</code>: this will be replaced automatically by the last game played by the raider</li>
+        </ul>
+        <div class="ui raised segment">
+            Example of working message:<br>
+            <code>
+                {raider} was playing {game} and just brought {count} viewers to our channel! Let's support them visiting {url} !
+            </code>
+        </div>
+        <div class="ui inverted segment">
+            <div class="ui inverted horizontal divider">IMPORTANT:</div>
+            The script will check for the presence of the parameters listed above when trying to save the custom
+            message for
+            ShoutOuts to raiders. So for the message to be accepted by the script, remember to always give a blank
+            space
+            after each one of the parameters used and make sure to add ALL the parameters on your message!
+        </div>
+        <code>b.2) Minimum raiders to Auto ShoutOut:</code><br>
+        This specifies the number of viewers the raider needs to bring to your channel in order to be
+        Auto-ShoutOut.<br><br>
+        <code>b.3) Save raiders to caster file?</code><br>
+        If enabled, this feature will add an entry to the saved casters' file for use later by the script.<br><br>
+        <code>b.4) Test Raider AutoSO settings:</code><br>
+        Clicking this button, the scrip will send a "fake" raid to test the settings defined above. If
+        <code>a.3</code> is enabled,
+        the script will display on your Twitch chat the custom message defined on <code>b.1</code> and if
+        <code>b.3</code> is
+        enabled, it will save (or update) an entry with the raid details to your casters' file.
+        <div class="ui inverted segment">
+            As already mentioned, this part of the script was made with the help of already existing script ("Raid
+            Notify") made by
+            Kruiser8, with some modifications to the original code for use in this test situation.
+        </div>
+    </h4>
+    <h4 class="ui teal dividing header">c) ShoutOut Settings:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="./img/customso_ui03.png"></div>
+            <a class="ui teal attached button enlarge" href="./img/customso_ui03.png" target="_blank"><i
+                    class="zoom-in icon"></i> View image in real size (new tab)</a>
+        </div>
+    </div>
+    <h4>
+        This group here is to manage how the bot will control settings for both "manual" (extra) ShoutOuts,
+        Auto-ShoutOuts and even
+        give the possibility to manualy ShoutOut casters which are not saved on your casters' file.<br><br>
+        <code>c.1) Command for manual ShoutOut:</code><br>
+        This field is used to set the command used for manual ShoutOuts in case <code>a.1</code> is disabled or if
+        you see fit making
+        extras ShoutOuts. This command will ShoutOut saved casters on your casters' file.
+        <div class="ui raised compact segment">
+            USAGE:<br>
+            <code>!caster &lt;casterName&gt;</code> or <code>!caster &lt;@casterName&gt;</code><br>
+            ANSWER:<br>
+            The answer depends on the settings saved for this script. In fact, the bot will look for the entry of
+            <code>casterName</code> on
+            your casters' file and will post a message with an ad to <code>casterName</code>'s Twitch Channel.
+        </div>
+        <code>c.2) Permission to use the command:</code><br>
+        This is self explanative. Just users with the required permission will be able to use the command set on
+        <code>c.1</code>. By default,
+        <code>Moderators</code> are the basic permit setting for using this command but it's up to the user to
+        define who they want to be able
+        to ShoutOut casters on their channel.<br><br>
+        <code>c.3) Default message for ShoutOuts:</code><br>
+        Similar to what was detailed on <code>b.1</code>, this field is used to set an ad message to be posted on
+        chat. This one is called
+        as "Default message" for a reason to be detailed later on this guide. For this message to be accepted by the
+        script, it NEEDS to have the
+        following specified parameters:
+        <ul>
+            <li><code>{caster}</code>: this will be replaced automatically by the caster's name (required parameter)
+            </li>
+            <li><code>{url}</code>: this will be replaced automatically by the caster's Twitch Channel link
+                (required parameter)</li>
+            <li><code>{game}</code>: this will be replaced automatically by the caster last played game (optional
+                parameter)</li>
+        </ul>
+        <div class="ui raised segment">
+            Example of working message:<br>
+            <code>Let's support my friend {caster} visiting their {url} ! There were playing {game} on their last stream!</code>
+        </div>
+        <div class="ui inverted segment">
+            <div class="ui inverted horizontal divider">IMPORTANT:</div>
+            The script will check for the presence of the parameters listed above when trying to save the custom
+            message for
+            ShoutOuts to casters. So for the message to be accepted by the script, remember to always give a blank
+            space
+            after each one of the parameters used and make sure to add ALL REQUIRED parameters on your message!
+        </div>
+        <code>c.4) Global cooldown (in seconds):</code><br>
+        Specifies a small cooldown to avoid spam of the command in case it's used by two or more permitted users in
+        a short
+        difference time smaller than the value defined. The default setting value is 5 seconds and it can go up to
+        60 seconds
+        (1 minute).<br><br>
+        <code>c.5) Allow manual shout to unsaved casters?</code><br>
+        Enabling this feature will grant permission to the script to ShoutOut casters which are not saved on your
+        casters' file by using the command defined
+        in <code>c.1</code>.
+    </h4>
+    <h4 class="ui teal dividing header">d) Caster Control Settings:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="./img/customso_ui04.png"></div>
+            <a class="ui teal attached button enlarge" href="./img/customso_ui04.png" target="_blank"><i
+                    class="zoom-in icon"></i> View image in real size (new tab)</a>
+        </div>
+    </div>
+    <h4>
+        This section here is the core of this script. First of all, here is where you set all the commands necessary
+        to manage what's going to be added
+        to your casters' file that is going to be used by the script.<br><br>
+        <code>d.1) Command to add a new caster to AutoShoutOut:</code><br>
+        This is the command you and your editors (yes, it's set by default for security reasons to just editor have
+        access to use it) will add a new
+        caster tor your casters' file. It's important to mention that all casters added to your casters' file will
+        ALWAYS be "ShoutOut" by the script
+        (following the specified settings defined in the fields already detailed), unless specified differently with
+        the <code>ALLOW</code> definition
+        (this setting will be explained later in this guide).
+        <div class="ui compact raised segment">
+            USAGE:<br>
+            <code>!addcaster &lt;casterName&gt;</code> or
+            <code>!addcaster &lt;casterName&gt; &lt;customMessage&gt;</code><br>
+            ANSWER:<br>
+            The answer will depend on the way of the usage of the command. Logging for this command is tracked by
+            the script and the fail or success
+            answer will be sent to the user's whisper.
+        </div>
+        <div class="ui inverted segment">
+            <div class="ui inverted horizontal divider">IMPORTANT:</div>
+            <ul>
+                <li>If nothing is written after &lt;casterName&gt;, the script will add an entry to
+                    &lt;casterName&gt; to send ShoutOuts using the
+                    <code>Default Message</code> set on <code>c.3</code>
+                </li>
+                <li>EVERYTHING that comes after the &lt;casterName&gt; will be interpreted by the script was your
+                    custom message and the script will
+                    try to set it as the custom message. With this in mind, remember: THIS CUSTOM MESSAGE NEEDS to
+                    follow the specified rules - and
+                    example - already detailed on how to set a message on <code>c.3</code></li>
+            </ul>
+        </div>
+        <code>d.2) Command to edit information from a caster to AutoShoutOut:</code><br>
+        With this command, you and your editors can change the informations saved inside your casters' file. Those
+        are the details that can be edited:
+        <ul>
+            <li><code>name</code>: changes the name (aka Twitch handle/username) of a saved caster on your casters'
+                file of a saved caster</li>
+            <li><code>msg</code>: changes the message set for a caster saved on your casters' file</li>
+            <li><code>allow</code>: changes the behavior of the script to allow the caster to be or not to be shout
+                by this script</li>
+        </ul>
+        <div class="ui raised segment">
+            USAGE:<br>
+            <ul>
+                <li>Changing a caster name:</li>
+                <code>!setcaster &lt;casterName&gt; name &lt;newCasterName&gt;</code><br><br>
+                <li>Changing a caster message from the default message to a custom message:</li>
+                <code>!setcaster &lt;casterName&gt; msg &lt;customMessage&gt;</code><br>
+                (&lt;customMessage&gt; MUST follow the rules specified in <code>c.3</code>)<br><br>
+                <li>Changing a caster message from a custom to "Default Message" (set in <code>c.3</code>):</li>
+                <code>!setcaster &lt;casterName&gt; msg Default</code><br>
+                (Default MUST BE WRITTEN with capital "D")<br><br>
+                <li>Changing the bot behavior to ShoutOuts:</li>
+                <code>!setcaster &lt;casterName&gt; allow yes</code> (bot will shout out &lt;casterName&gt; using
+                the defined settings)<br>
+                <code>!setcaster &lt;casterName&gt; allow no</code> (bot will not shout out &lt;casterName&gt;)<br>
+            </ul>
+            ANSWER:<br>
+            The answer provided to this command will depend on what is being requested to be changed and on if the
+            change was
+            made successfully or not. The answer for this request will ALWAYS be sent to the user's whisper.
+        </div>
+        <code>d.3) Command to delete a caster from AutoShoutOut:</code><br>
+        This command is used by you and your editors to delete information for a single caster (by his/her name)
+        from your casters' file.
+        <div class="ui raised segment">
+            USAGE:<br>
+            <code>!delcaster &lt;casterName&gt;</code><br>
+            ANSWER:<br>
+            The script will look out for &lt;casterName&gt; entry on your casters' file and delete it from the file.
+            If &lt;casterName&gt;
+            is not found, no action is taken. The answer sent to the user's whisper depends on the success or fail
+            of removal of
+            &lt;casterName&gt; from casters' file.
+        </div>
+        <code>d.4) Command to check info about a saved caster:</code><br>
+        This command is the only one in this group used by moderators, editors and you to inspect a set of basic
+        information about a single saved caster on your casters' file.
+        <div class="ui raised segment">
+            USAGE:<br>
+            <li>Inspecting all basic saved information:</li>
+            <code>!chkcaster &lt;casterName&gt; all</code><br><br>
+            <li>Inspecting the message to be displayed in chat during ShoutOuts:</li>
+            <code>!chkcaster &lt;casterName&gt; msg</code><br><br>
+            <li>Inspecting the script behavior to ShoutOuts:</li>
+            <code>!chkcaster &lt;casterName&gt; allow</code><br><br>
+            ANSWER:<br>
+            The answer will depend on what is being inspected as it will depend if the request returned a successful
+            result or not related to
+            &lt;casterName&gt;.
+        </div>
+        <code>d.5) List all saved Casters</code><br>
+        Clicking this button will print in ChatBot Log section a list with all the contents of your saved casters'
+        file.<br><br>
+        <code>d.6) I am sure I want to reset my casters' file.</code><br>
+        Checking this is MANDATORY ONLY IF you want to reset your casters' file to the initial status, with no
+        casters saved in there.<br><br>
+        <code>d.7) I want to create a backup of current casters' file. (Recomended)</code><br>
+        Enabling this is OPTIONAL. If this option is enabled, the script will copy all the information of the last
+        saved casters' file into a file with
+        the extension <code>*.bk</code> ("bk" stands here for backup), before erasing all the data from the main
+        casters' file.
+        <div class="ui inverted segment">
+            NOTE: If there is already a *.bk file on the script directory, checking this option will overwrite the
+            last saved (and existent) backup of
+            casters' file, replacing all data in there.
+        </div>
+        <code>d.8) Reset casters' file</code><br>
+        This is self-explanatory and will work properly ONLY if <code>d.6</code> is enabled.<br><br>
+        <code>d.9) Revert casters' file</code><br>
+        This will load your casters' file back to a previous state based on the last saved backup.
+    </h4>
+    <h4 class="ui teal dividing header">e) ScriptLog Settings:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="./img/customso_ui05.png"></div>
+            <a class="ui teal attached button enlarge" href="./img/customso_ui05.png" target="_blank"><i
+                    class="zoom-in icon"></i> View image in real size (new tab)</a>
+        </div>
+    </div>
+    <h4>
+        This is another self-explanatory group. These settings are here to manage the script usage LogFiles of
+        when/how it was used during a stream
+        session. For users who like to have more control over what's happening or want to report any bug on the
+        script, these LogFile settings are here
+        for that purpose.<br><br>
+        <code>e.1) Display Script log in the ChatBot?</code><br>
+        By default, this feature is disabled, and as it says it will display the usage log "live" within the ChatBot
+        log section ("Scripts &gt; Logs").<br><br>
+        <code>e.2) AutoSave ScriptLog file?</code><br>
+        By default, this feature is enabled. This will ensure that a log file is saved under the <code>Log</code>
+        directory created by the script when:
+        <ul>
+            <li>the bot is closed</li>
+            <li>the script is reloaded within the bot</li> or
+            <li>the script is disabled within the bot</li>
+        </ul>
+        <code>e.3) Save ScriptLog File</code><br>
+        Clicking here will prematurely save the script logs in the LogFile and will prevent the AutoSave feature (if
+        enabled) to create a (new) log file.
+        <div class="ui inverted segment">
+            NOTE: Clicking this button will also prevent from saving another file or rewriting the actual LogFile
+            contents with another Log information.
+        </div>
+        <code>e.4) Open ScriptLog Directory</code><br>
+        This will open the directory where all the Script LogFiles are stored.
+        <div class="ui inverted segment">
+            <h4 class="ui horizontal inverted divider">IMPORTANT:</h4>
+            Enable the <code>"Display Scriptlog in the chatbot?"</code> feature ONLY IF you want to perform
+            debugging for BugReport (or for development
+            reasons). Otherwise, your ChatBot may be overloaded with debug messages.
+        </div>
+    </h4>
+    <h4 class="ui teal dividing header">f) Support:</h4>
+    <div class="ui right floated segment">
+        <div class="ui card">
+            <div class="ui teal right corner label"><i class="image icon"></i></div>
+            <div class="image"><img src="./img/customso_ui06.png"></div>
+            <a class="ui teal attached button enlarge" href="./img/customso_ui06.png" target="_blank"><i
+                    class="zoom-in icon"></i> View image in real size (new tab)</a>
+        </div>
+    </div>
+    <h4>
+        This section of the script is formed only formed by buttons, as described below:<br><br>
+        <code>f.1) Visit my Site</code><br>
+        This will open your default browser and send you to my website.<br><br>
+        <code>f.2) Open ReadMe.txt</code><br>
+        This will open a ReadMe.txt file with a text version of the information provided on this page.<br><br>
+        <code>f.3) Changelog</code><br>
+        This will open the ChangeLog file, where it's possible to track all the changes made to the script.<br><br>
+        <code>f.4) Save Settings</code><br>
+        This button, although it's outside the <code>Support</code> group, it's used to save all changes you made in
+        the fields described above.
+    </h4>
+    <h4 class="ui teal dividing header">g) Found a bug or want any add-on to this script?</h4>
+    <h4>
+        If you found any bug or have any suggestions SPECIFICALLY to this script, contact me on my <a
+            href="mailto:vonschappler.gaming@gmail.com?subject=CustomShoutOut (text version) script review...">e-mail</a>!
+        Please note that if you are going to report a bug, the e-mail needs to contain:
+        <ul>
+            <li>Screenshots with the (possible) bug to be replicated and fixed</li>
+            <li>Details on all the steps made by the user who found the bug</li>
+            <li>A copy of the LogFile where the bug was detected</li>
+        </ul>
+        Please nothe that provinding all the information above will help on the fast bug fix and make your inquire
+        to be attented fast!
+    </h4>
+</div>
+
+<script src="../src/scripts/helpMenu.js"></script>
+<script>
+    helpMenu()
+</script>

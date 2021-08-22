@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<body style="background-color: white;">
+    <div class="header modal_content">
+        <h3 class="ui red dividing header"><i class="exclamation circle icon"></i>Unable to find the required resources...</h3>
+    </div>
+    <div class="content modal_content">
+        <div class="description">
+            <b> This is either the first time you are using this application or the required resource (settings.json) was not found in your system directory or is in an old format not used anymore by this version of this script.</b><br><br>You can either <b>create a blank version</b> of this file or <b>import and convert</b> a previous version file to be
+            used with this version.<br>
+            If you decide do import a file from the old version of this script, rember to fill the blank fields before making use of script <b>[Custom SFX v2.0.0]</b>!
+        </div>
+    </div>
+    <div class="actions">
+        <input type="file" class="folder-select" onchange="importSettingsFile(event)" id="settings-select" accept=".json, .bk"
+            name="settings_select">
+        <label id="settings-select-btn" for="settings-select" name="" class="ui teal button ">Import previous
+            "settings.json" file...</label>
+        <div id="settings-cancel" class="ui red button transition hidden" onclick="cancelSettingsImport()">Cancel Import</div>
+        <div id="settings-confirm" class="ui button positive _teal transition hidden">Confirm Import</div>
+        <div id="settings-submit" class="ui positive button _teal transition">Create new file</div>
+    </div>
+</body>

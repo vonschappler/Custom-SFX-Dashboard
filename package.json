@@ -1,67 +1,56 @@
 {
   "name": "dashboard",
-  "version": "0.1.0",
-  "private": true,
-  "autor": {
+  "version": "1.0.0",
+  "description": "[Custom SFX v2.0.0] sound effects visual controller.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder -w",
+    "build": "electron-builder build --publish never",
+    "deploy": "electron-builder build --win --publish always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vonschappler/Custom-SFX-Dashboard.git"
+  },
+  "author": {
     "name": "von Schappler",
     "email": "vonschappler.gaming@gmail.com",
     "url": "http://rebrand.ly/vonWebsite"
   },
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build --publish always",
-    "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vonschappler/Custom-SFX-Dashboard/issues"
   },
-  "main": "background.js",
+  "homepage": "https://github.com/vonschappler/Custom-SFX-Dashboard#readme",
   "dependencies": {
-    "connect-history-api-fallback": "^1.6.0",
-    "core-js": "^3.6.5",
+    "electron-log": "^4.4.1",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.9",
-    "express": "^4.17.1",
-    "express-sslify": "^1.2.0",
-    "node-sass": "^6.0.1",
-    "sass": "^1.37.5",
-    "sass-loader": "^10.1.1",
-    "serve-static": "^1.14.1",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "^4.5.13",
-    "@vue/cli-plugin-vuex": "^4.5.13",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "electron": "^13.0.0",
-    "electron-devtools-installer": "^3.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
-    "vue-cli-plugin-electron-builder": "~2.1.1"
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "electron": "13.1.4",
+    "electron-builder": "^22.11.7"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+  "build": {
+    "win": {
+      "target": "nsis-web",
+      "executableName": "dashboard",
+      "publisherName": "",
+      "requestedExecutionLevel": "requireAdministrator",
+      "icon": "./src/img/assets/dashboard.ico"
     },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true
+    }
+  }
 }
