@@ -92,8 +92,6 @@ out/
 dist/*
 
 #Github
-*.git
-*git*/
 .github/
 .gitignore
 .gitattributes
